@@ -41,65 +41,6 @@ flowchart TD
 - **Independent verification:** a successful submit response is not treated as proof; the worker re-reads the saved record through the AP UI and compares critical fields.
 - **Human-in-the-loop:** ambiguity, conflicting records and approval thresholds pause the worker rather than causing unsafe guessing.
 
-## Project structure
-
-```text
-centrAlign-autonomous-ap-worker/
-├── app/
-│   ├── agent/              # worker + planner
-│   ├── tools/              # explicit function tools
-│   ├── extraction/         # PDF reading + structured extraction
-│   ├── policies/           # policy PDF loading + deterministic engine
-│   ├── recovery/           # retry/backoff
-│   ├── memory/             # persisted worker state
-│   ├── models/             # Pydantic schemas
-│   ├── db/                 # SQLite + repositories
-│   └── tracing/            # execution trace
-├── simulated_ap/           # local FastAPI enterprise application
-├── streamlit_app/          # operations UI + approval controls
-├── data/                   # invoices, policies, seed/runtime files
-├── runs/                   # auditable run JSON + screenshots
-├── scripts/                # data + PDF generation
-├── tests/
-├── .env.example
-├── requirements.txt
-└── run.py
-```
-
-## Setup
-
-```bash
-python -m venv .venv
-# Windows PowerShell
-.\.venv\Scripts\Activate.ps1
-# macOS/Linux
-# source .venv/bin/activate
-
-pip install -r requirements.txt
-python -m playwright install chromium
-copy .env.example .env  # Windows
-# cp .env.example .env  # macOS/Linux
-python scripts/generate_data.py
-```
-
-For LLM-enabled planning, add your compatible API key/model to `.env`. The worker has a deterministic fallback planner so the core prototype can still be exercised without an LLM key.
-
-## Run
-
-Terminal 1:
-
-```bash
-python run.py ap
-```
-
-Terminal 2:
-
-```bash
-python run.py streamlit
-```
-
-Open the Streamlit URL shown in the terminal.
-
 ## Demo scenarios
 
 ### 1. Happy / transient retry
@@ -159,10 +100,6 @@ After submission, the worker retrieves the record from the AP application and co
 Every run is persisted under `runs/run_<task_id>.json`. Important events include task reception, observations, planner decisions, tool results, retries, approval, verification, and completion. Playwright screenshots are stored under `runs/screenshots/`.
 
 ## Testing
-
-```bash
-python run.py test
-```
 
 The test suite covers extraction, policies, duplicate detection, retry behavior, and the simulated AP application's health endpoint. The design deliberately keeps critical business rules unit-testable without requiring the LLM.
 
