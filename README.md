@@ -2,6 +2,8 @@
 
 A narrow enterprise AI-worker prototype for a CentrAlign AI-style workflow: a natural-language business objective is converted into bounded actions over files and a simulated internal AP application, with policy enforcement, duplicate protection, retries, human approval, execution tracing, and independent verification.
 
+[Demo Link](http://localhost:8501)
+
 ## Why this is an AI worker, not a chatbot
 
 The system does not merely explain how to process an invoice. It actually discovers invoice files, extracts structured data, checks company rules, interacts with a local AP application through browser automation, handles transient failure, and independently verifies the resulting record.
