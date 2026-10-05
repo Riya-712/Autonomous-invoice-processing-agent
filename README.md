@@ -1,4 +1,4 @@
-# CentrAlign AI — Autonomous Accounts Payable Worker
+# Autonomous Accounts Payable Worker
 
 A narrow enterprise AI-worker prototype for a CentrAlign AI-style workflow: a natural-language business objective is converted into bounded actions over files and a simulated internal AP application, with policy enforcement, duplicate protection, retries, human approval, execution tracing, and independent verification.
 
