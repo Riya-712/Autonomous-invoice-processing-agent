@@ -1,0 +1,22 @@
+{
+  "happy_path": {
+    "task": "Find the latest invoice from Acme Corporation and process it.",
+    "expected": "ACME-2026-105 is newest but missing due date; human review after safe derivation attempt"
+  },
+  "duplicate": {
+    "task": "Find invoice ACME-2026-104 from Acme Corporation and process it.",
+    "expected": "duplicate protection blocks creation"
+  },
+  "approval": {
+    "task": "Process the latest invoice from XYZ Components Pvt Ltd.",
+    "expected": "approval required because amount exceeds INR 100000"
+  },
+  "conflict": {
+    "task": "Process invoice RIS-2026-CONFLICT from Reliance Industrial Services.",
+    "expected": "conflict detected; approval required"
+  },
+  "transient": {
+    "task": "Process the latest invoice from ABC Office Supplies.",
+    "expected": "first submit fails transiently; retry succeeds and verifies"
+  }
+}

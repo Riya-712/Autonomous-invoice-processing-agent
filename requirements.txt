@@ -1,0 +1,13 @@
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.34,<1.0
+streamlit>=1.43,<2.0
+pydantic>=2.10,<3.0
+pydantic-settings>=2.7,<3.0
+openai>=1.70,<2.0
+python-dotenv>=1.0,<2.0
+pypdf>=5.3,<6.0
+reportlab>=4.2,<5.0
+playwright>=1.52,<2.0
+requests>=2.32,<3.0
+pytest>=8.3,<9.0
+httpx>=0.28,<1.0

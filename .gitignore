@@ -1,0 +1,17 @@
+.env
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+venv/
+playwright-report/
+node_modules/
+data/runtime/*.db
+/data/runtime/state_*.json
+runs/*.json
+runs/screenshots/*.png
+.DS_Store
+.env.example
+/seed
+/runtime
+/runs
