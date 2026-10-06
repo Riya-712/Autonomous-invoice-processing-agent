@@ -2,6 +2,8 @@
 
 > A bounded AI worker that converts a natural-language AP objective into tool actions while deterministic policies, human approval, retries, and independent verification control execution.
 
+![Overview](assest/Screenshot 2026-10-06 173156.png)
+
 ## Why this project matters
 
 Most LLM demos stop at text generation. This project focuses on **agentic execution**:
@@ -33,6 +35,8 @@ flowchart TD
 
     W --> X[Execution Trace]
 ```
+
+![execution-trace](assest/Screenshot 2026-10-06 173320.png)
 
 ## Engineering principles
 
