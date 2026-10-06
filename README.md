@@ -36,7 +36,7 @@ flowchart TD
     W --> X[Execution Trace]
 ```
 
-![execution-trace](assest/execution_trace.png.png)
+![execution-trace](assest/execution.png)
 
 ## Engineering principles
 
